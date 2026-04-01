@@ -4,7 +4,8 @@ require_once dirname(dirname(__FILE__))."/html.php";
 class tag extends html {
 	private $name,
 		$hasClosingTag,
-		$innerHtml;
+		$innerHtml,
+		$attributes= array();
 
 	function __construct($tagName, $hasClosingTag) {
 		$this->name = $tagName;
@@ -17,17 +18,26 @@ class tag extends html {
 		return parent::get();
 	}
 
-	function insert(tag $o) {
-		$this->setInnerHtml($o->get());
+	function insert($o) {
+		$this->addInnerHtml($o->get());
 	}
 
-	function setInnerHtml(string $innerHtml) {
+	function addAttribute($a) {
+		array_push($this->attributes, $a);
+	}
+
+	function addInnerHtml(string $innerHtml) {
 		$this->innerHtml .= $innerHtml;
 	}
 
 	function build() {
 		if ($this->hasClosingTag) {
-			$this->html= "<".$this->name.">".$this->innerHtml."</".$this->name.">";
+			$str_attributes="";
+			foreach ($this->attributes as $a){
+				$str_attributes.= $a->get(). " ";
+			}
+
+			$this->html= "<".$this->name ." ". $str_attributes.">".$this->innerHtml."</".$this->name.">";
 		}
 		else {
 			$this->html= "<".$this->name.">";

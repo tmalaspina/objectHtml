@@ -18,15 +18,15 @@ class htmlPage extends html {
 		$this->tagBody= new tagBody();
 	}
 
-	function insert(tag $o) {
+	function insert($o) {
 		$this->tagBody->insert($o);
 	}
 
 	function build() {
 		$this->html= "<!DOCTYPE html>";
 //var_dump($this->tagHead->get());
-		$this->tagHtml->setInnerHtml($this->tagHead->get());
-		$this->tagHtml->setInnerHtml($this->tagBody->get());
+		$this->tagHtml->addInnerHtml($this->tagHead->get());
+		$this->tagHtml->addInnerHtml($this->tagBody->get());
 		$this->html.= $this->tagHtml->get();
 	}
 }
