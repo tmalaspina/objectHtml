@@ -16,6 +16,9 @@
 
 			$link= new tagLink();
 			$link_a= new tagAttribute("href", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css", $link);
+			$link_b=new tagAttribute("rel", "stylesheet", $link);
+			$link_c= new tagAttribute("integrity", "sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB", $link);
+			$link_d= new tagAttribute("crossorigin", "anonymous", $link);
 
 			$script= new tagScript();
 			$script_a= new tagAttribute("src", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js", $script);

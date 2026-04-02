@@ -16,8 +16,16 @@ class tagAttribute {
 		array_push($this->values, $v);
 	}
 
+	function getName() {
+		return $this->name;
+	}
+
+	function getValues() {
+		return implode(' ', $this->values);
+	}
+
 	function get() {
-		return $this->name . '="' .implode(' ', $this->values) . '"';
+		return $this->name . '="' . $this->getValues() . '"';
 	}
 }
 ?>

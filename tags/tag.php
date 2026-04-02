@@ -23,6 +23,11 @@ class tag extends html {
 	}
 
 	function addAttribute($a) {
+		foreach($this->attributes as $i=>$attribute) {
+			if ($a->getName()==$attribute->getName()) {
+				$attribute->addValue($a->getValues());
+			}
+		}
 		array_push($this->attributes, $a);
 	}
 

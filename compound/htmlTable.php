@@ -11,7 +11,7 @@ require_once dirname(dirname(__FILE__))."/tags/tagAttribute.php";
 
 
 class htmlTable {
-	protected $table, $head, $body, $foot, $ths=[], $tds=[], $tfs=[];
+	protected $table, $head, $body, $foot, $ths=[], $tds=[], $tfs=[], $bodyRows=[];
 
 	function __construct() {
 		$this->table= new tagTable();
@@ -44,6 +44,18 @@ class htmlTable {
 		$td->addInnerHtml($t);
 
 		$this->addBodyTd($r, $c, $td);
+	}
+
+	function addTableAttribute($n, $v) {
+		$a= new tagAttribute($n, $v, $this->table);
+	}
+
+	function addBodyRowAttribute($r, $n, $v) {
+		if (is_null($this->bodyRows[$r])) {
+			$this->bodyRows[$r]= new tagTr();
+		}
+
+		$a= new tagAttribute($n, $v, $this->bodyRows[$r]);
 	}
 
 	function addHeaderCellAttribute($c, $n, $v) {
@@ -103,7 +115,12 @@ class htmlTable {
 
 		$tagTr=[];
 		foreach ($this->tds as $i=>$r) {
-			$tagTr[$i]= new tagTr();
+			if (!is_null($this->bodyRows[$i])) {
+				$tagTr[$i]= $this->bodyRows[$i];
+			} else {
+				$tagTr[$i]= new tagTr();
+			}
+
 			foreach($r as $j=>$v) {
 				$tagTr[$i]->insert($this->tds[$i][$j]);
 			}
