@@ -31,16 +31,16 @@ class tag extends html {
 	}
 
 	function build() {
+//		if ($this->hasClosingTag) {
+		$str_attributes="";
+		foreach ($this->attributes as $a){
+			$str_attributes.= $a->get(). " ";
+		}
 		if ($this->hasClosingTag) {
-			$str_attributes="";
-			foreach ($this->attributes as $a){
-				$str_attributes.= $a->get(). " ";
-			}
-
 			$this->html= "<".$this->name ." ". $str_attributes.">".$this->innerHtml."</".$this->name.">";
 		}
 		else {
-			$this->html= "<".$this->name.">";
+			$this->html= "<".$this->name . " " . $str_attributes.">";
 		}
 	}
 }
