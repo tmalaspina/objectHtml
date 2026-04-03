@@ -18,8 +18,16 @@ class tag extends html {
 		return parent::get();
 	}
 
-	function insert($o) {
+	function insert(tag $o) {
 		$this->addInnerHtml($o->get());
+	}
+
+	function addClass($v) {
+		$a= new tagAttribute("class", $v, $this);
+	}
+
+	function addAttributeNV($n, $v) {
+		$a= new tagAttribute($n, $v, $this);
 	}
 
 	function addAttribute($a) {

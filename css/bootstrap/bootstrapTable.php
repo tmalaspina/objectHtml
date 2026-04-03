@@ -1,6 +1,6 @@
 <?php
 	require_once dirname(dirname(dirname(__FILE__)))."/tags/tagAttribute.php";
-	require_once dirname(dirname(dirname(__FILE__)))."/compound/htmlTable.php";
+	require_once dirname(dirname(dirname(__FILE__)))."/components/htmlTable.php";
 
 	class bootstrapTable extends htmlTable {
 		function __construct() {

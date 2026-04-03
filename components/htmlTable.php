@@ -7,10 +7,10 @@ require_once dirname(dirname(__FILE__))."/tags/tagTd.php";
 require_once dirname(dirname(__FILE__))."/tags/tagTr.php";
 require_once dirname(dirname(__FILE__))."/tags/tagTh.php";
 require_once dirname(dirname(__FILE__))."/tags/tagAttribute.php";
+require_once dirname(dirname(__FILE__))."/htmlComponent.php";
 
 
-
-class htmlTable {
+class htmlTable extends htmlComponent {
 	protected $table, $head, $body, $foot, $ths=[], $tds=[], $tfs=[], $bodyRows=[];
 
 	function __construct() {
@@ -18,6 +18,8 @@ class htmlTable {
 		$this->head= new tagTHead();
 		$this->body= new tagTBody();
 		$this->foot= new tagTFoot();
+
+		$this->component= $this->table;
 	}
 
 	function addHeaderCell($c, $t) {
@@ -140,11 +142,6 @@ class htmlTable {
 		$this->table->insert($this->head);
                 $this->table->insert($this->body);
                 $this->table->insert($this->foot);
-	}
-
-	function get() {
-		$this->build();
-		return $this->table->get();
 	}
 }
 ?>
