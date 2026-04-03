@@ -106,7 +106,7 @@ class htmlTable {
 		$tagTrh=new tagTr();
 
 		foreach($this->ths as $i=>$c) {
-			if (is_null($this->ths[$i])) {
+			if (!array_key_exists($i, $this->ths)) {
 				$this->ths[$i]= new tagTh();
 			}
 			$tagTrh->insert($this->ths[$i]);
@@ -115,7 +115,7 @@ class htmlTable {
 
 		$tagTr=[];
 		foreach ($this->tds as $i=>$r) {
-			if (!is_null($this->bodyRows[$i])) {
+			if (array_key_exists($i, $this->bodyRows)) {
 				$tagTr[$i]= $this->bodyRows[$i];
 			} else {
 				$tagTr[$i]= new tagTr();
@@ -130,7 +130,7 @@ class htmlTable {
 		$tagTrf= new tagTr();
 
 		foreach($this->tfs as $i=>$c) {
-			if (is_null($this->tfs[$i])) {
+			if (!array_key_exists($i, $this->tfs)) {
 				$this->tfs[$i]= new tagTd();
 			}
 			$tagTrf->insert($this->tfs[$i]);

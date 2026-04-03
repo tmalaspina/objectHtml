@@ -23,12 +23,19 @@ class tag extends html {
 	}
 
 	function addAttribute($a) {
+		$done= false;
+
 		foreach($this->attributes as $i=>$attribute) {
 			if ($a->getName()==$attribute->getName()) {
 				$attribute->addValue($a->getValues());
+				$done= true;
+				break;
 			}
 		}
-		array_push($this->attributes, $a);
+
+		if (!$done) {
+			array_push($this->attributes, $a);
+		}
 	}
 
 	function addInnerHtml(string $innerHtml) {
@@ -36,16 +43,26 @@ class tag extends html {
 	}
 
 	function build() {
-//		if ($this->hasClosingTag) {
 		$str_attributes="";
-		foreach ($this->attributes as $a){
-			$str_attributes.= $a->get(). " ";
+		$n_attributes= count($this->attributes);
+
+		foreach ($this->attributes as $i=>$a){
+			if ($i==$n_attributes-1){
+				$str_attributes.= $a->get();
+			} else {
+				$str_attributes.= $a->get(). " ";
+			}
 		}
+
+		if (strlen($str_attributes)>0) {
+			$str_attributes= " ".$str_attributes;
+		}
+
 		if ($this->hasClosingTag) {
-			$this->html= "<".$this->name ." ". $str_attributes.">".$this->innerHtml."</".$this->name.">";
+			$this->html= "<".$this->name . $str_attributes.">".$this->innerHtml."</".$this->name.">";
 		}
 		else {
-			$this->html= "<".$this->name . " " . $str_attributes.">";
+			$this->html= "<".$this->name . $str_attributes.">";
 		}
 	}
 }

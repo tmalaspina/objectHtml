@@ -4,7 +4,7 @@ require_once dirname(__FILE__)."/tags/tagHtml.php";
 require_once dirname(__FILE__)."/tags/tagMeta.php";
 
 require_once "tags/tagHead.php";
-require_once "tags/body.php";
+require_once "tags/tagBody.php";
 require_once "tags/tag.php";
 
 require_once dirname(__FILE__)."/html.php";
