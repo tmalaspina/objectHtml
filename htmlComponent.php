@@ -3,14 +3,15 @@ require_once "tags/tag.php";
 
 class htmlComponent extends tag {
 	protected tag $component;
-/*
-	function build(){
-		parent::build();
-	}
-*/
-	function get(): string {
-		$this->build();
-		return $this->component->get();
-	}
+
+	function insert($o) {
+		$o->build();
+                $this->component->insert($o);
+        }
+
+        function get(): string{
+                return $this->component->get();
+        }
+
 }
 ?>

@@ -1,5 +1,8 @@
 <?php
 require_once dirname(dirname(dirname(__FILE__)))."/tags/tagDiv.php";
+require_once dirname(dirname(dirname(__FILE__)))."/tags/tag.php";
+require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
+
 
 class bootstrapContainer extends htmlComponent {
 	protected tag $div;
@@ -9,10 +12,6 @@ class bootstrapContainer extends htmlComponent {
 		$this->div->addClass("container");
 
 		$this->component= $this->div;
-	}
-
-	function build() {
-		$this->component->build();
 	}
 }
 ?>

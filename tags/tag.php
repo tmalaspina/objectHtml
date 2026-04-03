@@ -18,7 +18,7 @@ class tag extends html {
 		return parent::get();
 	}
 
-	function insert(tag $o) {
+	function insert($o) {
 		$this->addInnerHtml($o->get());
 	}
 

@@ -104,6 +104,10 @@ class htmlTable extends htmlComponent {
 		$this->tfs[$c]= $td;
 	}
 
+	/*function get(): string{
+		return $this->table->get();
+	}*/
+
 	function build() {
 		$tagTrh=new tagTr();
 
@@ -142,6 +146,9 @@ class htmlTable extends htmlComponent {
 		$this->table->insert($this->head);
                 $this->table->insert($this->body);
                 $this->table->insert($this->foot);
+
+		//$this->component->build();
+		//$this->component= $this->table;
 	}
 }
 ?>
