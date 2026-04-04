@@ -22,6 +22,22 @@ class tag extends html {
 		$this->addInnerHtml($o->get());
 	}
 
+	function addHref($h) {
+		$a= new tagAttribute("href", $h, $this);
+	}
+
+	function addInner($o) {
+		$this->insert($o);
+	}
+
+	function addId($v) {
+		$a= new tagAttribute("id", $v, $this);
+	}
+
+	function addType($v) {
+		$a= new tagAttribute("type", $v, $this);
+	}
+
 	function addClass($v) {
 		$a= new tagAttribute("class", $v, $this);
 	}

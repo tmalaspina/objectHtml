@@ -1,8 +1,10 @@
 <?php
 require_once dirname(dirname(dirname(__FILE__)))."/tags/tagNav.php";
 require_once dirname(dirname(dirname(__FILE__)))."/tags/tagA.php";
+require_once dirname(dirname(dirname(__FILE__)))."/tags/tagUl.php";
+require_once dirname(dirname(dirname(__FILE__)))."/tags/tagButton.php";
 require_once dirname(dirname(dirname(__FILE__)))."/css/bootstrap/bootstrapNavbarToggler.php";
-require_once dirname(dirname(dirname(dirname(__FILE__))))."/htmlComponent.php";
+require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
 
 
 class bootstrapNavbar extends htmlComponent {
@@ -35,7 +37,7 @@ function __construct($navId= "navBar", $hasToggler= true) {
 	$this->component= $this->nav;
 }
 
-function addItem($i){
+function addMenu($i){
 	array_push($this->navbarItems, $i);
 }
     
@@ -60,16 +62,20 @@ function setNameHref($h="#"){
 }
 
 function build($c="", $style="", $cUl="me-auto", $styleUl=""){
+	foreach ($this->navbarItems as $i=>$ni) {
+		$ni->build();
+	}
+
 	$div= new tagDiv();
         $div->addClass("container-fluid");
 
 	$divMenus= new tagDiv();
 	$divMenus->addClass("collapse  navbar-collapse");
-    $divMenus->addClass($c);
-    if (strcmp($style, "")){
-        $divMenus->addAttributeNV("style", $style);
-    }
-   
+	$divMenus->addClass($c);
+    	if (strcmp($style, "")){
+        	$divMenus->addAttributeNV("style", $style);
+    	}
+
 	$divMenus->addId($this->navId);
 
 	$divMenusUl= new tagUl();
@@ -103,7 +109,9 @@ function build($c="", $style="", $cUl="me-auto", $styleUl=""){
 	}
 	$divMenus->build();
 	$div->addInner($divMenus);
-    $this->nav->addInner($div);
+    	$this->nav->addInner($div);
+
+	parent::build();
 }
 
 function setImage($src, $alt){

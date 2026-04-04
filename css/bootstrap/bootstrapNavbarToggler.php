@@ -1,5 +1,6 @@
 <?php
-require_once dirname(dirname(__FILE__))."htmlComponent.php";
+require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
+require_once dirname(dirname(dirname(__FILE__)))."/tags/tagSpan.php";
 
 class bootstrapNavbarToggler extends htmlComponent {
 function __construct($navId){
@@ -15,7 +16,7 @@ function __construct($navId){
 	$s= new tagSpan();
 	$s->addClass("navbar-toggler-icon");
 
-	$this->component->addInner($s);
+	$this->component->insert($s);
 }
 }
 
