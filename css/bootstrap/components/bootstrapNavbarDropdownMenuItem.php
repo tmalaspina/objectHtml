@@ -1,6 +1,6 @@
 <?php
-require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagLi.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/htmlComponent.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagLi.php";
 
 class bootstrapNavbarDropdownMenuItem extends htmlComponent{
 	protected $title;

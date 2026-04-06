@@ -1,8 +1,8 @@
 <?php
-require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagLi.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagUl.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagA.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/htmlComponent.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagLi.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagUl.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagA.php";
 
 
 

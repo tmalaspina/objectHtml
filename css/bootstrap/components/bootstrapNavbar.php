@@ -1,10 +1,10 @@
 <?php
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagNav.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagA.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagUl.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagButton.php";
-require_once dirname(dirname(dirname(__FILE__)))."/css/bootstrap/bootstrapNavbarToggler.php";
-require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagNav.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagA.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagUl.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagButton.php";
+require_once "bootstrapNavbarToggler.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/htmlComponent.php";
 
 
 class bootstrapNavbar extends htmlComponent {

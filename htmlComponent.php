@@ -9,6 +9,10 @@ class htmlComponent extends tag {
                 $this->component->insert($o);
         }
 
+	function build(){
+		$this->component->build();
+	}
+
         function get(): string{
                 return $this->component->get();
         }

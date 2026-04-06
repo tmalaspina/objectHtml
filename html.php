@@ -9,9 +9,9 @@
 	}
 
 	function show() {
-		$this->build();
+//		$this->build();
 //		var_dump($this->html);
-		echo $this->html;
+		echo $this->get();
 	}
 }
 ?>

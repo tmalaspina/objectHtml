@@ -1,6 +1,6 @@
 <?php
-require_once dirname(dirname(dirname(__FILE__)))."/htmlComponent.php";
-require_once dirname(dirname(dirname(__FILE__)))."/tags/tagSpan.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/htmlComponent.php";
+require_once dirname(dirname(dirname(dirname(__FILE__))))."/tags/tagSpan.php";
 
 class bootstrapNavbarToggler extends htmlComponent {
 function __construct($navId){

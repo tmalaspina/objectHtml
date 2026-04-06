@@ -13,7 +13,7 @@ class tagAttribute {
 	}
 
 	function addValue($v) {
-		array_push($this->values, $v);
+		is_null($v) ? $this->values[0]= NULL : array_push($this->values, $v);
 	}
 
 	function getName() {
@@ -21,11 +21,13 @@ class tagAttribute {
 	}
 
 	function getValues() {
-		return implode(' ', $this->values);
+		return is_null($this->values[0]) ? NULL : implode(' ', $this->values);
 	}
 
 	function get() {
-		return $this->name . '="' . $this->getValues() . '"';
+		$v= $this->getValues();
+
+		return is_null($v) ? $this->name : $this->name . '="' . $v . '"';
 	}
 }
 ?>
