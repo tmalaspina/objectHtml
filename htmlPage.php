@@ -1,5 +1,4 @@
 <?php
-<?php
 require_once dirname(__FILE__)."/tags/tagTitle.php";
 require_once dirname(__FILE__)."/tags/tagHtml.php";
 require_once dirname(__FILE__)."/tags/tagMeta.php";
