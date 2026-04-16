@@ -1,7 +1,9 @@
 <?php
 require_once dirname(dirname(__FILE__))."/html.php";
 
+
 class tag extends html {
+
 	private $name,
 		$hasClosingTag,
 		$innerHtml,
